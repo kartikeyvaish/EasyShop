@@ -1,0 +1,15 @@
+export default {
+  BaseURL: "Base URL of Backend (if any)",
+  ImageURL: "Base URL of Images (if any)",
+  SocketURL: "Socket URL of Backend (if any)",
+  ClientID: "Google Authentication Client ID for Development",
+  DevClientID: "Google Authentication Client ID for Production",
+  JWT_Key: "A JWT Key of your choice for Storing Secured Data",
+  TermsURL: "Page URL of the company's Terms & Conditions Page",
+  DataUsePolicyURL: "Page URL of the company's Data Usage Policy Page",
+  CookieURL: "Page URL of the company's Cookies USage Page",
+  Instagram: "https://www.instagram.com/",
+  Github: "https://github.com/",
+  DefaultProduct: "Default Product URL",
+  DefaultThumbnail: "Default Thumbnail URL",
+};

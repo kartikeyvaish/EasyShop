@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "EasyShop",
+    "slug": "EasyShop",
+    "version": "1.0.0",
+    "scheme": "easyshop",
+    "orientation": "portrait",
+    "icon": "./assets/AppDefaults/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/AppDefaults/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E90FF"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "androidNavigationBar": {
+      "backgroundColor": "#212121"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/AppDefaults/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleSignIn": {
+          "apiKey": "Google API Key",
+          "certificateHash": "Hash Key for Login"
+        }
+      },
+      "useNextNotificationsApi": true
+    },
+    "web": {
+      "favicon": "./assets/AppDefaults/favicon.png"
+    }
+  }
+}
