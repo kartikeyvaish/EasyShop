@@ -8,15 +8,11 @@ import HelperFunctions from "../config/HelperFunctions";
 function OrderProgress({ Date }) {
   let OrderDate = HelperFunctions.GiveOrderDate(Date);
   let DeliveryDate = HelperFunctions.GiveDeliveryDate(Date);
-  let DaysDifference = HelperFunctions.NumberOfDays(Date);
+  let DaysDifference = HelperFunctions.GiveDayDifference(Date);
+  const [AnimateTo, SetAnimateTo] = useState(0);
 
   let DeliveryStatus =
     DaysDifference >= 4 ? "Delivered" : `Expected to deliver before`;
-
-  let animateTo =
-    DaysDifference < 1
-      ? ((DaysDifference + 0.3) * 60) / 4
-      : (DaysDifference * 60) / 4;
 
   const [Height, SetHeight] = useState(new Animated.Value(0));
 
@@ -32,12 +28,21 @@ function OrderProgress({ Date }) {
   );
 
   useEffect(() => {
-    ShowProgress();
+    let DaysDifference = HelperFunctions.GiveDayDifference(Date);
+    SetAnimateTo(
+      DaysDifference < 1
+        ? ((DaysDifference + 0.3) * 60) / 4
+        : (DaysDifference * 60) / 4
+    );
   }, []);
+
+  useEffect(() => {
+    ShowProgress();
+  }, [AnimateTo]);
 
   const ShowProgress = () => {
     Animated.timing(Height, {
-      toValue: animateTo,
+      toValue: AnimateTo,
       duration: 1500,
       easing: Easing.linear,
       useNativeDriver: false,
