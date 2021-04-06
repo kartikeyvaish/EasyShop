@@ -225,6 +225,22 @@ const NumberOfDays = (str: any) => {
   return Two.diff(One, "days");
 };
 
+const GiveDayDifference = (str: any) => {
+  const data = new Date(str);
+  const OrderDate = moment(data);
+  const TodayDate = moment().utcOffset(330);
+  const DeliveryDate = OrderDate.add(4, "days");
+
+  let Deliver_Today = DeliveryDate.diff(TodayDate, "days");
+  let Deliery_Order = DeliveryDate.diff(OrderDate, "days");
+
+  if (Deliver_Today < 0) {
+    return 4;
+  } else {
+    return Deliery_Order;
+  }
+};
+
 export default {
   GivePrice,
   GiveImage,
@@ -245,4 +261,5 @@ export default {
   GiveAddressFormat,
   GiveDeliveryDate,
   NumberOfDays,
+  GiveDayDifference,
 };
