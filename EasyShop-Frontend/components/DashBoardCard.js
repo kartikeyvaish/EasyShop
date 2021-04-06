@@ -6,6 +6,7 @@ import AppText from "./AppText";
 import AppConfiguration from "../config/AppConfiguration";
 import HelperFunctions from "../config/HelperFunctions";
 import Image from "./Image";
+import Card from "./Card";
 
 const BaseURL = AppConfiguration.BaseURL;
 
@@ -25,11 +26,13 @@ function DashBoardCard({ index, item, onPress }) {
       >
         <View style={styles.InnerBox}>
           <View style={styles.ProductImageBox}>
-            <Image
-              style={styles.ProductImage}
-              uri={BaseURL + img}
-              preview={{ uri: BaseURL + img }}
-            />
+            <Card>
+              <Image
+                style={styles.ProductImage}
+                uri={BaseURL + img}
+                preview={{ uri: BaseURL + img }}
+              />
+            </Card>
           </View>
           <AppText Title={item.Title} numberOfLines={1} style={styles.Title} />
           <AppText
@@ -71,6 +74,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderRadius: 10,
+    elevation: 15,
   },
   Title: {
     paddingLeft: 10,
