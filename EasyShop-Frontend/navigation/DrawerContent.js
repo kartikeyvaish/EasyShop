@@ -131,7 +131,7 @@ function DrawerContent({ navigation }) {
           }
         />
         <DrawerCard
-          Name="Preferences"
+          Name="Settings"
           topBorder={true}
           size={15}
           onPress={() => navigation.navigate("Settings")}
