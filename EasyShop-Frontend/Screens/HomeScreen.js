@@ -104,7 +104,6 @@ function HomeScreen({ navigation }) {
           renderItem={RenderCategoryCard}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          pagingEnabled={true}
           keyboardShouldPersistTaps="always"
         />
       </View>
