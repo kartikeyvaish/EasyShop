@@ -38,16 +38,16 @@ router.post("/ChangeDP", upload.single("ProfilePicture"), async (req, res) => {
     if (!user) return res.status(500).send("Invalid User ID");
 
     const DirName = `./uploads/Users/${user._id}/ProfilePicture`;
-    const FileName =
-      user.Name.slice(0, 4) +
-      "_" +
-      user.Email.slice(0, 4) +
-      "_" +
-      random(999999).toString() +
-      "." +
-      req.file.originalname.split(".").pop();
-    const URL = `${DirName}/${FileName}`;
-    const OldPic = "." + user.ProfilePicture;
+    let URL = "";
+
+    if (user.ProfilePicture === "/uploads/DefaultImage.png") {
+      URL =
+        `./uploads/Users/${user._id}/ProfilePicture/DP_Profile_${random(
+          10000
+        )}_${user._id}.` + user.ProfilePicture.split(".").pop();
+    } else {
+      URL = "." + user.ProfilePicture;
+    }
 
     fs.mkdir(DirName, { recursive: true }, async (err) => {
       if (err) {
@@ -68,7 +68,6 @@ router.post("/ChangeDP", upload.single("ProfilePicture"), async (req, res) => {
                   res.status(500).send("Error in Updating Profile Picture");
                 } else {
                   res.send({ Result: "Done" });
-                  fs.unlink(OldPic, function (err) {});
                 }
               }
             );
@@ -77,6 +76,7 @@ router.post("/ChangeDP", upload.single("ProfilePicture"), async (req, res) => {
       }
     });
   } catch (error) {
+    console.log(error);
     res.status(500).send("Error");
   }
 });
