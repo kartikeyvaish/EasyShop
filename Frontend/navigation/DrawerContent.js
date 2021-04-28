@@ -58,9 +58,12 @@ function DrawerContent({ navigation }) {
             >
               <View>
                 <Avatar.Image
-                  source={{ uri: BaseURL + User.ProfilePicture }}
+                  source={{
+                    uri:
+                      BaseURL + User.ProfilePicture + `?time= + ${new Date()}`,
+                  }}
                   size={100}
-                  style={{ marginBottom: 20 }}
+                  style={{ marginBottom: 20, backgroundColor: "transparent" }}
                 />
                 <AppText
                   Title={User.Name}
