@@ -1,0 +1,18 @@
+.layers {
+  box-shadow: 0 0 10px grey;
+}
+
+.content {
+  height: "auto";
+  min-height: calc(100vh - 50px);
+  overflow: auto;
+}
+
+.SmallElevation {
+  box-shadow: 0 0 2px grey;
+}
+
+.ChatBox {
+  min-height: calc(100vh - 190px);
+  max-height: calc(100vh - 190px);
+}
